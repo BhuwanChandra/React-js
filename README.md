@@ -1,2 +1,2 @@
 # React-js
-just started learning react-js
+This will be my react notes or snnipets
