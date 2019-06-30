@@ -1,12 +1,11 @@
 import React from "react"
+import "../index.css"
 
 function Header() {
     return (
-        <div>
-            <main>
-                <h1>This is My first React App</h1>
-            </main>
-        </div>
+        <header className="navbar" >
+            This is My first React App
+        </header>
     )
 }
 
