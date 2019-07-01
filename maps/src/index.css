@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+}
+
+.contacts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    flex-basis: 250px;
+    margin: 20px;
+    padding: 10px;
+    border: 2px dashed darkolivegreen;
+}

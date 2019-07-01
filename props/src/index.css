@@ -14,7 +14,7 @@ body {
 
 .contact-card > img {
     width: 100%;
-    height: auto;
+    min-height: 150px;
 }
 
 .contact-card > h3 {
