@@ -21,11 +21,16 @@ function App() {
 // CLASS BASED COMPONENT
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      todoitems: todosData.map(item => <TodoItem key={item.id} todo={item} />)
+    }
+  }
   render(){
-    const todoItems = todosData.map(todo => <TodoItem key={todo.id} todo={todo} />)
     return (
       <div className="todo-list">
-        {todoItems}
+        {this.state.todoitems}
       </div>
     )
   }
