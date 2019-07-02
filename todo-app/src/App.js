@@ -24,13 +24,32 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoitems: todosData.map(item => <TodoItem key={item.id} todo={item} />)
+      todos: todosData
     }
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange(id) {
+    // Update state so that the item with the given id flips `completed` from false to true (or vise versa)
+    this.setState(prevState => {
+      const myObject = Object.assign({},prevState);
+      return {
+        todos: myObject.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo
+      })}
+    });
+  };
+
   render(){
+
+    const todoItems = this.state.todos.map(item => <TodoItem onClick={this.handleChange} key={item.id} todo={item} />);
+    
     return (
       <div className="todo-list">
-        {this.state.todoitems}
+        {todoItems}
       </div>
     )
   }
