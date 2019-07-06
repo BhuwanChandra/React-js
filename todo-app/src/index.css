@@ -37,6 +37,11 @@ body {
     color: #333333;
 }
 
+.doneTodo {
+    text-decoration: line-through;
+    color: #cdcdcd;
+}
+
 input[type=checkbox] {
     margin-right: 10px;
     font-size: 40px;

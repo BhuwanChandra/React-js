@@ -22,7 +22,7 @@ class TodoItem extends React.Component{
             <div className="todo-item">
                 <p>
                     <input onChange={() => { this.props.onClick(this.props.todo.id); }} type="checkbox" checked={this.props.todo.completed}></input>
-                    <span>{this.props.todo.text}</span>
+                    {this.props.todo.completed ? <span className="doneTodo">{this.props.todo.text}</span> : <span>{this.props.todo.text}</span>}
                 </p>
             </div>
         ) 
