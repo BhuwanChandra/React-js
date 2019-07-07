@@ -1,122 +1,161 @@
-import React from "react";
+import React, { Component } from "react"
 
+/**
+ * Challenge: Wire up the partially-finished travel form so that it works!
+ * Remember to use the concept of controlled forms
+ * https://reactjs.org/docs/forms.html
+ * 
+ * All information should be populating the text below the form in real-time
+ * as you're filling it out
+ * 
+ * This exercise is adapted from the V School curriculum on vanilla JS forms:
+ * https://coursework.vschool.io/travel-form/
+ * 
+ * All of our challenges and learning resources are open for the public
+ * to play around with and learn from at https://coursework.vschool.io
+ */
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      firstName: "",
-      lastName: "",
-      isFriendly: false,
-      gender: "",
-      favColor: "blue"
-    };
-    this.handleChange = this.handleChange.bind(this)
-  }
+class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            firstName: "",
+            lastName: "",
+            age: "",
+            gender: "",
+            destination: "",
+            isVegan: false,
+            isKosher: false,
+            isLactoseFree: false
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
 
-  handleChange(event) {
-    const {name, value, type, checked} = event.target;
-    type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
-  }
+    handleChange(event) {
+        const { name, value, type, checked } = event.target
+        type === "checkbox" ?
+            this.setState({
+                [name]: checked
+            })
+            :
+            this.setState({
+                [name]: value
+            })
+    }
 
-  handleSubmit(){
+    render() {
+        return (
+            <main>
+                <form>
+                    <input
+                        name="firstName"
+                        value={this.state.firstName}
+                        onChange={this.handleChange}
+                        placeholder="First Name"
+                    />
+                    <br />
 
-  }
+                    <input
+                        name="lastName"
+                        value={this.state.lastName}
+                        onChange={this.handleChange}
+                        placeholder="Last Name"
+                    />
+                    <br />
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit} >
-          <label>
-            first name:
-            <input 
-            type="text"
-            name="firstName"
-            value={this.state.firstName}
-            placeholder="First Name"
-            onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            last name:
-            <input 
-            type="text"
-            name="lastName"
-            value={this.state.lastName}
-            placeholder="Last Name"
-            onChange={this.handleChange}
-            />
-          </label>
+                    <input
+                        name="age"
+                        value={this.state.age}
+                        onChange={this.handleChange}
+                        placeholder="Age"
+                    />
+                    <br />
 
-          <br/>
-          <label>
-            Your Feedback:
-            <br/>
-            <textarea 
-            value="some default value"
-            onChange={this.handleChange}
-            />
-          </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            checked={this.state.gender === "male"}
+                            onChange={this.handleChange}
+                        /> Male
+                    </label>
 
-          <br/>
-          <label>
-            <input
-            type="checkbox"
-            name="isFriendly"
-            checked={this.state.isFriendly}
-            onChange={this.handleChange}
-            />
-            Is Friendly?
-          </label>
+                    <br />
 
-          <br />
-          Gender:
-          <br/>
-          <label> 
-            <input
-            type="radio"
-            name="gender"
-            value="male"
-            checked={this.state.gender === "male"}
-            onChange={this.handleChange}
-            /> Male
-          </label>
-          <br/>
-          <label>
-            <input
-            type="radio"
-            name="gender"
-            value="female"
-            checked={this.state.gender === "female"}
-            onChange={this.handleChange}
-            /> Female
-          </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="female"
+                            checked={this.state.gender === "female"}
+                            onChange={this.handleChange}
+                        /> Female
+                    </label>
 
-          <br/>
-          <label>
-            Favourite Color:
-            <br/>
-            <select
-              value={this.state.favColor}
-              onChange={this.handleChange}
-              name="favColor"
-            >
-              <option value="blue">blue</option>
-              <option value="yellow">yellow</option>
-              <option value="green">green</option>
-              <option value="red">red</option>
-            </select>
-          </label>
+                    <br />
 
-          <br/>
-          <button>Submit</button>
-        </form>
-        <h3>Hello {this.state.firstName} {this.state.lastName}!</h3>
-        <h3>You are a {this.state.gender} </h3>
-        <h3>You favourite color is {this.state.favColor} </h3>
-      </div>
-    )
-  }
+                    <select
+                        value={this.state.destination}
+                        name="destination"
+                        onChange={this.handleChange}
+                    >
+                        <option value="">-- Please Choose a destination --</option>
+                        <option value="germany">Germany</option>
+                        <option value="norway">Norway</option>
+                        <option value="north pole">North Pole</option>
+                        <option value="south pole">South Pole</option>
+                    </select>
+
+                    <br />
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="isVegan"
+                            onChange={this.handleChange}
+                            checked={this.state.isVegan}
+                        /> Vegan?
+                    </label>
+                    <br />
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="isKosher"
+                            onChange={this.handleChange}
+                            checked={this.state.isKosher}
+                        /> Kosher?
+                    </label>
+                    <br />
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="isLactoseFree"
+                            onChange={this.handleChange}
+                            checked={this.state.isLactoseFree}
+                        /> Lactose Free?
+                    </label>
+                    <br />
+
+                    <button>Submit</button>
+                </form>
+                <hr />
+                <h2>Entered information:</h2>
+                <p>Your name: {this.state.firstName} {this.state.lastName}</p>
+                <p>Your age: {this.state.age}</p>
+                <p>Your gender: {this.state.gender}</p>
+                <p>Your destination: {this.state.destination}</p>
+                <p>Your dietary restrictions:</p>
+
+                <p>Vegan: {this.state.isVegan ? "Yes" : "No"}</p>
+                <p>Kosher: {this.state.isKosher ? "Yes" : "No"}</p>
+                <p>Lactose Free: {this.state.isLactoseFree ? "Yes" : "No"}</p>
+
+            </main>
+        )
+    }
 }
 
-export default App;
+export default App
