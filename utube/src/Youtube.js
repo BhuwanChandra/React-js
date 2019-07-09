@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import APIkey from "./APIkey";
 
-const API = "AIzaSyAlsQ1NWg6I53719SFacNUILu7BGf-SGMo";
+const API = APIkey;
 const channelID = "UCXgGY0wkgOzynnHvSEVmE3A";
 const result = 20;
 
@@ -29,7 +30,6 @@ class Youtube extends Component {
     }
 
   render() {
-    // Api key = AIzaSyAlsQ1NWg6I53719SFacNUILu7BGf-SGMo
     // https://www.youtube.com/channel/UCXgGY0wkgOzynnHvSEVmE3A
       console.log(finalURL);
       console.log(this.state.resultyt);
@@ -61,4 +61,4 @@ class Youtube extends Component {
 export default Youtube;
 
 
-// https://www.googleapis.com/youtube/v3/search?key=AIzaSyAlsQ1NWg6I53719SFacNUILu7BGf-SGMo&channelId=UCXgGY0wkgOzynnHvSEVmE3A&part=snippet,id&order=date&maxResults=10
+// https://www.googleapis.com/youtube/v3/search?key={Your_API_key}&channelId=UCXgGY0wkgOzynnHvSEVmE3A&part=snippet,id&order=date&maxResults=10
