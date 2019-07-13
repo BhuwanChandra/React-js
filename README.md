@@ -8,5 +8,5 @@ props, how to change states, lifecycle methods in react, etc.
 
 ## Meme generator app in reactjs
 This was the final project I worked on in basic reactjs tutorial.
-
+In this, I had learnt things realted to form like input, selection, changing state and displaying data in inputs.
 
