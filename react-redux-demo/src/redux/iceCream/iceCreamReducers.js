@@ -1,7 +1,7 @@
 import { BUY_ICECREAM } from "./iceCreamTypes";
 
 const initialState = {
-    numOfIceCreams: 20
+    numOfIceCreams: 15
 }
 
 const iceCreamReducer = (state = initialState, action) => {
